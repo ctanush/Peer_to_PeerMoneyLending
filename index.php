@@ -91,13 +91,13 @@ Services Section
             <div class="row">
                 <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-desktop"></i></div>
-                    <h4 class="service-title"><a href="">Peer2Peer Lending</a></h4>
+                    <h4 class="service-title"><a href="P2P.php">Peer2Peer Lending</a></h4>
                     <p class="service-description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
                         excepturi sint occaecati cupiditate non provident</p>
                 </div>
                 <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
-                    <h4 class="service-title"><a href="">Crowd-Funding</a></h4>
+                    <h4 class="service-title"><a href="Crowdfunding.php">Crowd-Funding</a></h4>
                     <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat tarad limino ata</p>
                 </div>
@@ -109,7 +109,7 @@ Services Section
                 </div>
                 <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-photo"></i></div>
-                    <h4 class="service-title"><a href="">Wealth Managment</a></h4>
+                    <h4 class="service-title"><a href="mortage.php">Wealth Managment</a></h4>
                     <p class="service-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
                         officia deserunt mollit anim id est laborum</p>
                 </div>
