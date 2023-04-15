@@ -31,7 +31,9 @@ include('sessioncheck.php');
     <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,13 +57,21 @@ include('sessioncheck.php');
 
     <?php include('header.php'); ?>
 
-    <div id="page">
-
+    <div id="page" style="height: 1700px;">
         <div id="main-content">
             <div id="myHeader">
-                <button style="color: white;border-radius: 15px;font-size: 52px; background: black;opacity: 0.6;position: relative;left: 30%;font-weight: bolder;margin-bottom: 50px;">Your Transaction History</button>
+                <button style="    color: black;
+                        border-radius: 5px;
+                        font-size: 38px;
+                        background: #38d39f;
+                        opacity: 0.6;
+                        position: relative;
+                        /* left: 30%; */
+                        font-weight: bolder;
+                        margin-bottom: 50px;">
+                    Your Transaction History</button>
             </div>
-            <div id="main-options">
+            <div id="main-options" style="width: 100%;">
                 <div id="modal">
                     <div class="question">
                         <div class="q">
@@ -75,12 +85,14 @@ include('sessioncheck.php');
                             $row1 = mysqli_fetch_array($row);
                             $balance = $row1['balance'];
                             ?>
-                            <p id="wallet">Your wallet amount is <span><?php echo $balance; ?></span> </p>
-                            <div class="row">
+                            <p id="wallet">Your wallet amount is <span>
+                                    <?php echo $balance; ?>
+                                </span> </p>
+                            <div class="row1">
                                 <div id="jump-here" class="col-sm-6 form-box dual_register-2">
                                     <div class="form-top">
                                         <div class="form-top-left">
-                                            <h2 style="color: #1a1a1a; text-align: center;">Withdraw Amount</h2>
+                                            <h2 style="color: red; text-align: center;">Withdraw Amount</h2>
                                             <!--<p>Fill in the details to Register: </p>-->
                                         </div>
                                         <div class="form-top-right">
@@ -91,17 +103,20 @@ include('sessioncheck.php');
                                         <form role="form" action="subwallet.php" method="post" class="login-form">
                                             <div class="form-group">
                                                 <label class="sr-only" for="form-number">Number</label>
-                                                <input type="number" name="amount" placeholder="Amount You Want To Withdraw..." class="form-number form-control" id="form-number">
+                                                <input type="number" name="amount"
+                                                    placeholder="Amount You Want To Withdraw..."
+                                                    class="form-number form-control" id="form-number">
                                             </div>
 
-                                            <button type="submit" class="btn">Withdraw</button>
+                                            <button type="submit" class="btn"
+                                                style="background-color: #fd9696;">Withdraw</button>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form-box dual_register-1">
                                     <div class="form-top">
                                         <div class="form-top-left">
-                                            <h2 style="color: #1a1a1a;text-align: center;">Add To Wallet</h2>
+                                            <h2 style="color: #41c963;text-align: center;">Add To Wallet</h2>
                                             <!--<p>Enter your username and password to log on:</p>-->
                                         </div>
                                         <div class="form-top-right">
@@ -112,11 +127,13 @@ include('sessioncheck.php');
                                         <form role="form" action="addwallet.php" method="post" class="login-form">
                                             <div class="form-group">
                                                 <label class="sr-only" for="form-number">number</label>
-                                                <input type="number" name="amount" placeholder="Amount You Want To Add..." class="
+                                                <input type="number" name="amount"
+                                                    placeholder="Amount You Want To Add..." class="
                                                                 form-number form-control" id="form-number">
                                             </div>
 
-                                            <button type="submit" class="btn">Add Amount</button>
+                                            <button type="submit" class="btn" style="background-color: #38d39f;">Add
+                                                Amount</button>
 
                                         </form>
                                     </div>
@@ -140,16 +157,32 @@ include('sessioncheck.php');
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $trans = mysqli_query($con, "SELECT * FROM transaction WHERE useruid='$useruid' ");
+                                        $trans = mysqli_query($con, "SELECT * FROM transaction WHERE useruid='$useruid' ORDER BY id DESC");
                                         while ($rows = mysqli_fetch_array($trans)) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $rows['id']; ?></td>
-                                                <td><?php echo $rows['amount']; ?></td>
-                                                <td><?php echo $rows['type']; ?></td>
-                                                <td><?php echo $rows['balance']; ?></td>
+                                            ?>
+                                            <?php
+                                            if ($rows['type'] == 'credit') {
+                                                $_clr = 'green';
+                                                $rows['amount'] = '+ ' . $rows['amount'];
+                                            } else {
+                                                $_clr = 'red';
+                                                $rows['amount'] = '- ' . $rows['amount'];
+                                            } ?>
+                                            <tr style="color:<?php echo $_clr; ?>" ;>
+                                                <td>
+                                                    <?php echo $rows['id']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['amount']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['type']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $rows['balance']; ?>
+                                                </td>
                                             </tr>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                     </tbody>
@@ -175,46 +208,61 @@ include('sessioncheck.php');
                                         <?php
                                         $invest = mysqli_query($con, "SELECT * FROM invest WHERE useruid='$useruid' ");
                                         while ($row = mysqli_fetch_array($invest)) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['amount']; ?></td>
+                                            ?>
+                                            <tr style="    color: #7474e6;">
+                                                <td>
+                                                    <?php echo $row['id']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['amount']; ?>
+                                                </td>
                                                 <?php
                                                 $borrowuid = $row['borrowuid'];
                                                 $invest1 = mysqli_query($con, "SELECT * FROM borrow WHERE borrowuid='$borrowuid' ");
                                                 $invest2 = mysqli_fetch_array($invest1);
 
                                                 ?>
-                                                <td><?php echo $invest2['title']; ?></td>
-                                                <td><?php echo $row['date']; ?></td>
+                                                <td>
+                                                    <?php echo $invest2['title']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['date']; ?>
+                                                </td>
                                             </tr>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                         <?php
                                         $invest = mysqli_query($con, "SELECT * FROM investcrowd WHERE useruid='$useruid' ");
                                         while ($row = mysqli_fetch_array($invest)) {
-                                        ?>
+                                            ?>
                                             <tr>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['amount']; ?></td>
+                                                <td>
+                                                    <?php echo $row['id']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['amount']; ?>
+                                                </td>
                                                 <?php
                                                 $borrowuid = $row['borrowuid'];
                                                 $invest1 = mysqli_query($con, "SELECT * FROM borrowcrowd WHERE borrowuid='$borrowuid' ");
                                                 $invest2 = mysqli_fetch_array($invest1);
 
                                                 ?>
-                                                <td><?php echo $invest2['title']; ?></td>
-                                                <td><?php echo $row['date']; ?></td>
+                                                <td>
+                                                    <?php echo $invest2['title']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['date']; ?>
+                                                </td>
                                             </tr>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
 
                         <div class="question">
                             <div class="q">
@@ -223,27 +271,43 @@ include('sessioncheck.php');
                             </div>
                             <div class="a bottom">
                                 <?php
-                                $useruid = $_SESSION['log']['uid'];
                                 $qry = mysqli_query($con, "SELECT * FROM borrow WHERE useruid='$useruid' ");
                                 while ($rows = mysqli_fetch_array($qry)) {
                                     if ($rows['logo'] == "")
-                                        $picture = "img/user.png";
+                                        $picture = "img/client-2.jpg";
                                     else
                                         $picture = $rows['logo'];
 
-                                ?>
-                                    <div class="options">
-                                        <img src="<img/>" class="img-thumbnail lender-pic" alt="User Photo">
+                                    ?>
+                                    <div class="options" style="
+                                    background-color: #d2f9e4;
+                                                width: 321px;
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: center;
+                                                align-items: center;
+                                                border-radius: 5px;">
+                                        <img src=<?php echo $picture; ?> class="img-thumbnail lender-pic" alt="User Photo"
+                                            style="border-radius: 50%;/* display:block; */width: 100px;height: 100px;">
+
                                         <div class="project-details">
-                                            <h3><?php echo $rows['title']; ?>
-                                                <p>Project category: <?php echo $rows['category']; ?></p>
-                                                <h4>Project Description</h4>
-                                                <p><?php echo $rows['descrip']; ?></p>
-                                                <h4>Amount Needed: <span class="amount">Rs. <?php echo ($rows['amount'] - $rows['collect']); ?></span></h4>
-                                                <h4>Days Left: <span class="days"><?php echo $rows['timee']; ?></span></h4>
+                                            <h3>
+                                                <?php echo $rows['title']; ?>
+                                                <!-- <p>Project category:
+                                                  
+                                                </p> -->
+                                                <!-- <h4>Project Description</h4>-->
+
+
+                                                <h4>Amount Needed: <span class="amount">Rs.
+                                                        <?php echo ($rows['amount'] - $rows['collect']); ?>
+                                                    </span></h4>
+                                                <h4>Days Left: <span class="days">
+                                                        <?php echo $rows['timee']; ?>
+                                                    </span></h4>
                                         </div>
                                     </div>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </div>
@@ -255,9 +319,10 @@ include('sessioncheck.php');
             </div>
         </div>
 
-        <?php include('footer.php'); ?>
+
         <!-- #footer -->
     </div>
+    <?php include('footer.php'); ?>
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <!-- Required JavaScript Libraries -->

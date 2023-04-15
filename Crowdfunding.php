@@ -31,7 +31,9 @@ include('sessioncheck.php');
     <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,74 +60,94 @@ include('sessioncheck.php');
 
 </head>
 
-<body style="background-image: url(img/hero-bg.jpg);">
+<body>
 
 
     <?php include('header.php'); ?>
 
 
     <div id="preloader"></div>
-    <div class="flex-container">
-        <?php
-        $useruid = $_SESSION['log']['uid'];
-        $qry = mysqli_query($con, "SELECT * FROM borrowcrowd WHERE useruid!='$useruid' and amount!=collect ");
-        while ($rows = mysqli_fetch_array($qry)) {
-            $useruid = $rows['useruid'];
-            $sql = mysqli_query($con, "SELECT * FROM user WHERE uid='$useruid' ") or die(mysqli_error($con));
-            $sql1 = mysqli_fetch_array($sql);
-            if ($rows['logo'] == "")
-                $picture = "img/user.png";
-            else
-                $picture = $rows['logo'];
-        ?>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+    <div class="flex-container"
+        style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(./img//moneybgpng.jpg) fixed center center;">
+        <div class="container-box ">
+            <?php
+            $useruid = $_SESSION['log']['uid'];
+            $qry = mysqli_query($con, "SELECT * FROM borrowcrowd WHERE useruid!=$useruid and amount!=collect ");
+            while ($rows = mysqli_fetch_array($qry)) {
+                $useruid = $rows['useruid'];
+                $sql = mysqli_query($con, "SELECT * FROM user WHERE uid=$useruid ") or die(mysqli_error($con));
+                $sql1 = mysqli_fetch_array($sql);
+                if ($rows['logo'] == "")
+                    $picture = "img/user.png";
+                else
+                    $picture = $rows['logo'];
+                ?>
+                <div class="container">
+                    <div class="row">
+                        <div class="lend-box">
+                            <div class="panel panel-info" style=" height: 213px;">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        <?php echo $sql1['name']; ?>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3 " style="width: 153px;" align="center"><img
+                                                alt="User Pic" src="<?php echo $picture; ?>"
+                                                class="img-circle img-responsive" /></div>
 
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><?php echo $sql1['name']; ?></h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic" src="<?php echo $picture; ?>" class="img-circle img-responsive" /></div>
+                                        <div class=" col-md-9 col-lg-9 ">
+                                            <table class="table table-user-information">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $rows['title']; ?>
+                                                        </td>
+                                                        <td>Category :
+                                                            <?php echo $rows['category']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Description:</td>
+                                                        <td>
+                                                            <?php echo $rows['descrip']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Amount Needed</td>
+                                                        <td>
+                                                            <?php echo $rows['amount']; ?>
+                                                        </td>
+                                                    </tr>
 
-                                    <div class=" col-md-9 col-lg-9 ">
-                                        <table class="table table-user-information">
-                                            <tbody>
-                                                <tr>
-                                                    <td><?php echo $rows['title']; ?></td>
-                                                    <td>Category : <?php echo $rows['category']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Description:</td>
-                                                    <td><?php echo $rows['descrip']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Amount Needed</td>
-                                                    <td><?php echo $rows['amount']; ?></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <form method="post" action="investcrowd.php">
+                                                </tbody>
+                                            </table>
                                             <div class="wrap-input100 validate-input">
-                                                <input type="hidden" name="amount" value="<?php echo $rows['amount']; ?>">
-                                                <input type="hidden" name="borrowuid" value="<?php echo $rows['borrowuid']; ?>">
-                                                <span class="focus-input100"></span>
+                                                <form method="post" action="investcrowd.php">
+                                                    <!-- <div class="wrap-input100 validate-input"> -->
+                                                    <input type="hidden" name="amount"
+                                                        value="<?php echo $rows['amount']; ?>">
+                                                    <input type="hidden" name="borrowuid"
+                                                        value="<?php echo $rows['borrowuid']; ?>">
+                                                    <span class="focus-input100"></span>
+                                                    <!-- </div> -->
+                                                    <!-- <button type="submit" style="background: transparent; border: none;"><a
+                                                            href="#" class="btn btn-primary">Invest</a></button> -->
+                                                    <button class="btn btn-primary bpri">Invest</button>
+                                                </form>
                                             </div>
-                                            <button type="submit" style="background: transparent; border: none;"><a href="#" class="btn btn-primary">Invest</a></button>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php
-        }
-        ?>
+                <?php
+            }
+            ?>
+        </div>
     </div>
     <?php include('footer.php'); ?>
     <!-- #footer -->

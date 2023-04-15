@@ -26,7 +26,9 @@
     <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +41,56 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/mainSU.css">
     <link rel="stylesheet" type="text/css" href="css/utilSU.css">
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
 
+        .modal_t {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            border-radius: 15px;
+            width:70%;
+
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            cursor: pointer;
+            color:black;
+        }
+
+        /* Terms and conditions */
+        .terms {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin : 20px;
+        }
+
+        li {
+            padding: 0.6rem;
+        }
+        .txt1 button{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,7 +101,7 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="login100-more" style="background-image: url('img/bg-01.jpg');"></div>
+            <div class="login100-more"></div>
 
             <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
                 <form class="login100-form validate-form" method="post" action="register.php">
@@ -94,9 +145,9 @@
                             <label class="label-checkbox100" for="ckb1">
                                 <span class="txt1">
                                     I agree to the
-                                    <a href="#" class="txt2 hov1">
+                                    <button  type="button" onclick="openModal(); return false;" class="txt2 hov1">
                                         Terms of User
-                                    </a>
+    </button>
                                 </span>
                             </label>
                         </div>
@@ -122,6 +173,45 @@
         </div>
     </div>
 
+
+    <div class="overlay" id="overlay">
+        <div class="modal_t" id="modal_t">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div style='background-color:#38d39f;color:white;border-radius:15px 15px 0  0;padding:8px'><h1  >Terms and Conditions</h1></div>
+            <div class="terms">
+                <p><b>Welcome to P2P Money Lending website. By using our website, you agree to the following terms and
+                    conditions:</b></p>
+                <ul>
+                    <li>Eligibility: To use our website, you must be at least 18 years old and meet any other
+                        eligibility requirements set forth by P2P Money Lending.</li>
+                    <li>Application process: You must complete the application process accurately and truthfully, and
+                        provide all required information and documentation.</li>
+                    <li>Credit check: We may conduct a credit check or obtain credit reports on you to assess your
+                        creditworthiness.</li>
+                    <li>Loan terms: We will provide you with a loan agreement detailing the terms of the loan, including
+                        the interest rate, fees, and repayment schedule. You must review and agree to the loan terms
+                        before accepting the loan.</li>
+                    <li>Repayment: You must repay the loan according to the repayment schedule outlined in the loan
+                        agreement. Failure to do so may result in additional fees, charges, or legal action.</li>
+                    <li>Late payments: If you are unable to make a payment on time, you must notify us as soon as
+                        possible to discuss alternative arrangements. Late payments may result in additional fees and
+                        charges.</li>
+                    <li>Fees and charges: You will be responsible for paying any fees and charges associated with the
+                        loan, including origination fees, late fees, and prepayment fees.</li>
+                    <li>Default: If you fail to repay the loan or violate any of the terms and conditions of the loan
+                        agreement, we may take legal action to recover the debt.</li>
+                    <li>Privacy: We will protect your personal and financial information in accordance with applicable
+                        laws and regulations.</li>
+                    <li>Amendments: We may amend the terms and conditions of the loan agreement at any time by providing
+                        notice to you. You will have the opportunity to review and accept the amended terms before they
+                        take effect.</li>
+                </ul>
+                <p>By using our website, you acknowledge that you have read, understood, and agreed to these terms and
+                    conditions.</p>
+            </div>
+        </div>
+    </div>
+ 
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -162,4 +252,24 @@
 
 </body>
 
+<script>
+
+       function openModal() {
+                console.log("hello")
+                document.getElementById("overlay").style.display = "block";
+                document.body.style.overflow = "hidden";
+            }
+
+        function closeModal() {
+            document.getElementById("overlay").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("overlay")) {
+                closeModal();
+            }
+        };
+
+    </script>
 </html>

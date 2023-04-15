@@ -2556,12 +2556,14 @@
 
 .flex-m {
 	display: -webkit-box;
-	display: -webkit-flex;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-align-items: center;
-	align-items: center;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    justify-content: center;
+	justify-content: center;
 }
 
 .flex-str {

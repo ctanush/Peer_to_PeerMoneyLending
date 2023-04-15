@@ -31,7 +31,9 @@ include('sessioncheck.php');
     <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,67 +51,82 @@ include('sessioncheck.php');
             flex-wrap: wrap;
         }
 
-        .flex-container>div {
+        /* .flex-container>div {
 
             margin: 10px;
             padding: 20px;
-        }
+        } */
     </style>
 
 </head>
 
-<body style="background-image: url(img/hero-bg.jpg);">
+<body>
 
 
     <?php include('header.php'); ?>
 
 
     <div id="preloader"></div>
-    <div class="flex-container">
-        <?php
-        $useruid = $_SESSION['log']['uid'];
-        $qry = mysqli_query($con, "SELECT * FROM borrow WHERE useruid!='$useruid' and amount!=collect ");
-        while ($rows = mysqli_fetch_array($qry)) {
-            $useruid = $rows['useruid'];
-            $sql = mysqli_query($con, "SELECT * FROM user WHERE uid='$useruid' ") or die(mysqli_error($con));
-            $sql1 = mysqli_fetch_array($sql);
-            if ($rows['logo'] == "")
-                $picture = "img/user.png";
-            else
-                $picture = $rows['logo'];
-        ?>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+    <div class="flex-container"
+        style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(./img//moneybgpng.jpg) fixed center center;">
 
+        <div class="container-box ">
+            <?php
+            $useruid = $_SESSION['log']['uid'];
+            $qry = mysqli_query($con, " SELECT * FROM borrow WHERE useruid!='$useruid' and amount!=collect ");
+            while ($rows = mysqli_fetch_array($qry)) {
+                $useruid = $rows['useruid'];
+                $sql = mysqli_query($con, "SELECT * FROM user WHERE uid='$useruid' ") or die(mysqli_error($con));
+                $sql1 = mysqli_fetch_array($sql);
+                if ($rows['logo'] == "")
+                    $picture = "img/user.png";
+                else
+                    $picture = $rows['logo'];
+                ?>
+                <div class="container">
+                    <div class="row">
+                        <div class="lend-box">
+                            <div class="panel panel-info" style=" height: 213px;">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        <?php echo $sql1['name']; ?>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
 
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><?php echo $sql1['name']; ?></h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<?php echo $picture; ?>" class="img-circle img-responsive"> </div>
+                                    <div class="col-md-3 col-lg-3 " style="width: 153px;" align="center"> <img alt="User Pic"
+                                            src="<?php echo $picture; ?>" class="img-circle img-responsive"> </div>
 
-                                    <div class=" col-md-9 col-lg-9 ">
+                                    <div class=" col-md-9 col-lg-9 " style=" display: flex; width: 84%;"  >
                                         <table class="table table-user-information">
-                                            <tbody>
+                                            <tbody style="  ">
                                                 <tr>
-                                                    <td><?php echo $rows['title']; ?></td>
+                                                    <td>
+                                                        <?php echo $rows['title']; ?>
+                                                    </td>
 
-                                                    <td>Category: <?php echo $rows['category']; ?></td>
+                                                    <td>Category:
+                                                        <?php echo $rows['category']; ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Description:</td>
-                                                    <td><?php echo $rows['descrip']; ?></td>
+                                                    <td>
+                                                        <?php echo $rows['descrip']; ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Amount Collected</td>
-                                                    <td><?php echo ($rows['amount'] - $rows['collect']); ?></td>
+                                                    <td>
+                                                        <?php echo $rows['collect']; ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Amount Needed</td>
-                                                    <td><?php echo $rows['amount']; ?></td>
+
+                                                    <td>
+                                                        <?php echo ($rows['amount'] - $rows['collect']); ?>
+                                                    </td>
                                                 </tr>
 
                                             </tbody>
@@ -124,22 +141,24 @@ include('sessioncheck.php');
                                                     <option value="<?php echo (4 * $rows['part']); ?>"><?php echo (4 * $rows['part']); ?></option>
                                                     <option value="<?php echo (5 * $rows['part']); ?>"><?php echo (5 * $rows['part']); ?></option>
                                                 </select>
-                                                <input type="hidden" name="borrowuid" value="<?php echo $rows['borrowuid']; ?>">
+                                                <input type="hidden" name="borrowuid" value=<?php echo $rows['borrowuid']; ?>>
                                                 <span class="focus-input100"></span>
+                                                <button class="btn btn-primary">Invest</button>
+                                            </form>
                                         </div>
-                                        <a href="#" class="btn btn-primary">Invest</a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
 
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php
-        }
-        ?>
+                <?php
+            }
+            ?>
+        </div>
 
 
 

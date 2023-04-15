@@ -303,15 +303,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 15px;
   text-decoration: none;
   display: inline-block;
-  color: #fff;
+  color: black;
   font-family: 'Raleway', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 14px;
   outline: none;
+  cursor: pointer;
+}
+ .menu-has-children-hover{
+  cursor: pointer;
 }
 
 .nav-menu a:hover, .nav-menu li:hover > a, .nav-menu .menu-active > a {
-  color: #03C4EB;
+  color: white;
 }
 
 .nav-menu ul {
@@ -471,7 +475,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .section-title-divider {
   width: 50px;
   height: 3px;
-  background: #03C4EB;
+  background: #38d39f;
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -509,7 +513,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Services Section
 --------------------------------*/
 #services {
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img/services-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img//moneybgpng.jpg") fixed center center;
   background-size: cover;
   padding: 80px 0 60px 0;
 }
@@ -519,12 +523,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .service-icon {
-  float: left;
-  background: #03C4EB;
-  padding: 16px;
-  border-radius: 50%;
-  transition: 0.5s;
-  border: 1px solid #03C4EB;
+  background: #38d39f;
+    padding: 11px;
+    /* border-radius: 50%; */
+    transition: 0.5s;
+    width: 48px;
+    /* border: 1px solid #31a859; */
+    margin-bottom: 12px;
+    margin-top: -13px;
+    border-radius: 9px;
 }
 
 #services .service-icon i {
@@ -541,7 +548,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .service-title {
-  margin-left: 80px;
+  /* margin-left: 80px; */
   font-weight: 700;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -552,7 +559,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .service-description {
-  margin-left: 80px;
+  /* margin-left: 80px; */
   line-height: 24px;
 }
 
@@ -743,6 +750,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #team .member .pic img {
   max-width: 100%;
+  vertical-align: middle;
+  border-radius: 15px;
 }
 
 #team .member h4 {
@@ -862,4 +871,45 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-align: center;
   font-size: 13px;
   color: #ccc;
+}
+
+.card{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 358px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 2.8vw 3.4vw;
+    height: 16.67vw;
+    position: relative;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: none;
+
+    background-color: indianred;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 20px 20px 50px rgb(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  cursor: pointer;
+  top: -5px;
+}
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
 }

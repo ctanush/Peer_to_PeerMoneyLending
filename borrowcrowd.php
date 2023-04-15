@@ -4,7 +4,7 @@ session_start();
 $title = $_POST['title'];
 $cat = $_POST['category'];
 $descrip = $_POST['descrip'];
-$amount = $_POST['amt'];
+$amount = $_POST['amount'];
 $useruid = $_SESSION['log']['uid'];
 $file = 'count.txt';
 //get the number from the file
@@ -13,7 +13,7 @@ $uniq = file_get_contents($file);
 $uid = $uniq + 1;
 // add that new value to text file again for next use
 file_put_contents($file, $uid);
-$qry = mysqli_query($con, "INSERT INTO borrowcrowd (title, descrip, category, amount, useruid, borrowuid, logo, collect) VALUES ('$title', '$descrip', '$cat', '$amount', '$useruid', '$uid', 'investlogo/Jason_Bradburyglass2.jpg', '0' ) ") or die(mysqli_error($con));
+$qry = mysqli_query($con, "INSERT INTO borrowcrowd (title, descrip, category, amount, useruid, borrowuid, logo, collect) VALUES ('$title', '$descrip', '$cat', $amount, $useruid, $uid, 'investlogo/Jason_Bradburyglass2.jpg', '0' ) ") or die(mysqli_error($con));
 ?>
 <script>
     alert("Your request is under process..");

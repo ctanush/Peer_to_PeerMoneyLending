@@ -26,7 +26,9 @@
     <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,13 +50,19 @@
     <?php include('header.php'); ?>
     <!-- #header -->
 
+
     <div class="limiter">
-        <div class="container-login100" style="background-image: url('img/bg-01.jpg');">
-            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+        <div class="container-login100" style="background-color:#eaf4f6;">
+            <div className="img-mine">
+                <img src="img/bg.svg" style="  width: 697px; height: 444px;" />
+            </div>
+            <div class="wrap-login100 p-l-15 p-r-15 p-t-10 p-b-33">
                 <form class="login100-form validate-form flex-sb flex-w" method="post" action="signin.php">
-                    <span class="login100-form-title p-b-53">
+                    <span class="login100-form-title ">
                         Sign In
                     </span>
+                    <!-- <span class="login100-form-title p-b-53">Create account</span> -->
+                <span class="login100-form-title" style="color:#38d39f;">Let’s connect again!</span>
 
                     <div class="p-t-31 p-b-9">
                         <span class="txt1">

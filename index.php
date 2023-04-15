@@ -30,7 +30,9 @@ include('config.php');
     <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,7 +53,7 @@ include('config.php');
     <!--==========================
 Hero Section
 ============================-->
-    <section id="hero">
+    <!-- <section id="hero">
         <div class="hero-container">
             <div class="wow fadeIn">
                 <div class="hero-logo">
@@ -61,7 +63,7 @@ Hero Section
                 <h1>All finances at one place.</h1>
                 <h2>We provide <span class="rotating"> P2P Lending, Crowd Funding, Financial Advisory, Wealth Management, Asset Management</span></h2>
 
-    </section>
+    </section> -->
 
     <!--==========================
 Header Section
@@ -76,7 +78,8 @@ Header Section
 Services Section
 ============================-->
     <section id="services">
-        <div class="container wow fadeInUp">
+        <div class="container wow fadeInUp"
+            style="visibility: visible;/* animation-name: fadeInUp; */display: flex;flex-direction: column;gap: 12px;">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="section-title">Our Services</h3>
@@ -86,30 +89,35 @@ Services Section
             </div>
 
             <div class="row">
-                <div class="col-md-4 service-item">
+                <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-desktop"></i></div>
                     <h4 class="service-title"><a href="">Peer2Peer Lending</a></h4>
-                    <p class="service-description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                    <p class="service-description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                        excepturi sint occaecati cupiditate non provident</p>
                 </div>
-                <div class="col-md-4 service-item">
+                <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
                     <h4 class="service-title"><a href="">Crowd-Funding</a></h4>
-                    <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                    <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat tarad limino ata</p>
                 </div>
-                <div class="col-md-4 service-item">
+                <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-paper-plane"></i></div>
                     <h4 class="service-title"><a href="">Financial Advisory</a></h4>
-                    <p class="service-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                    <p class="service-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur</p>
                 </div>
-                <div class="col-md-4 service-item">
+                <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-photo"></i></div>
                     <h4 class="service-title"><a href="">Wealth Managment</a></h4>
-                    <p class="service-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p class="service-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum</p>
                 </div>
-                <div class="col-md-4 service-item">
+                <div class="col-md-4 service-item card">
                     <div class="service-icon"><i class="fa fa-road"></i></div>
                     <h4 class="service-title"><a href="">Alternative Asset-Management</a></h4>
-                    <p class="service-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                    <p class="service-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                        blanditiis praesentium voluptatum deleniti atque</p>
                 </div>
             </div>
         </div>
@@ -118,7 +126,7 @@ Services Section
     <!--==========================
 Subscrbe Section
 ============================-->
-    <section id="subscribe">
+    <!-- <section id="subscribe">
         <div class="container wow fadeInUp">
             <div class="row">
                 <div class="col-md-8">
@@ -130,7 +138,7 @@ Subscrbe Section
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!--==========================
 Team Section
@@ -141,7 +149,8 @@ Team Section
                 <div class="col-md-12">
                     <h3 class="section-title">Our Team</h3>
                     <div class="section-title-divider"></div>
-                    <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                    <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque</p>
                 </div>
             </div>
 
@@ -149,8 +158,8 @@ Team Section
                 <div class="col-md-3">
                     <div class="member">
                         <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
+                        <h4>Ritika Pandey</h4>
+                        <!-- <span>Chief Executive Officer</span> -->
                         <div class="social">
                             <a href=""><i class="fa fa-twitter"></i></a>
                             <a href=""><i class="fa fa-facebook"></i></a>
@@ -163,8 +172,8 @@ Team Section
                 <div class="col-md-3">
                     <div class="member">
                         <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-                        <h4>Sarah Jhinson</h4>
-                        <span>Product Manager</span>
+                        <h4>Abhijit singh</h4>
+                        <!-- <span>Product Manager</span> -->
                         <div class="social">
                             <a href=""><i class="fa fa-twitter"></i></a>
                             <a href=""><i class="fa fa-facebook"></i></a>
@@ -177,8 +186,8 @@ Team Section
                 <div class="col-md-3">
                     <div class="member">
                         <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-                        <h4>William Anderson</h4>
-                        <span>CTO</span>
+                        <h4>C Tanush</h4>
+                        <!-- <span>CTO</span> -->
                         <div class="social">
                             <a href=""><i class="fa fa-twitter"></i></a>
                             <a href=""><i class="fa fa-facebook"></i></a>
@@ -188,19 +197,7 @@ Team Section
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </div>
@@ -215,7 +212,8 @@ Contact Section
                 <div class="col-md-12">
                     <h3 class="section-title">Contact Us</h3>
                     <div class="section-title-divider"></div>
-                    <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                    <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque</p>
                 </div>
             </div>
 
@@ -246,19 +244,24 @@ Contact Section
                         <div id="errormessage"></div>
                         <form action="" method="post" role="form" class="contactForm">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <input type="text" class="form-control" name="subject" id="subject"
+                                    placeholder="Subject" data-rule="minlen:4"
+                                    data-msg="Please enter at least 8 chars of subject" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" rows="5" data-rule="required"
+                                    data-msg="Please write something for us" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
                             <div class="text-center"><button type="submit">Send Message</button></div>
@@ -297,3 +300,8 @@ Footer
 </body>
 
 </html>
+
+
+<!-- light #d8f1ed -->
+<!-- #38d39f -->
+<!-- #32bd8f dark -->
